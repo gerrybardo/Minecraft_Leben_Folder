@@ -14,7 +14,7 @@ import java.util.*;
  */
 public class SubCommandTop {
 
-    private String[] ColorCodes = new String[]{"§11. ", "§22. ", "§33. ", "§44. ", "§55. "};
+    private String[] ColorCodes = new String[]{"§e#1 ", "§e#2 ", "§e#3 ", "§e#4 ", "§e#5 "};
     private ArrayList<Integer> topKills = new ArrayList<Integer>();
     private HashMap<String, Double> topClansHashMap = new HashMap<String, Double>();
     public SubCommandTop(Player p, Main plugin) {
@@ -30,12 +30,17 @@ public class SubCommandTop {
             while (set.next()){
                 topClansHashMap.put(set.getString("clankürzel"), set.getDouble("kills"));
 
-
             }
-            p.sendMessage("§6§LTOP-CLAN-KILLS");
+            /*
+            Aussehen muss noch verschönert werden!
+             */
+
+            p.sendMessage("§8§L§N                        ");
+            p.sendMessage("");
+            p.sendMessage("        §6§LTop-5");
             Map<String, Double> sortedMap = sortByValue(topClansHashMap);
             printMap(sortedMap, p, ColorCodes);
-
+            p.sendMessage("§8§L§N                         ");
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -45,7 +50,7 @@ public class SubCommandTop {
         int counter = 0;
         while (it.hasNext()) {
             Map.Entry pair = (Map.Entry)it.next();
-            p.sendMessage(colorCodes[counter] +  "" + pair.getKey() + " Kills: " + pair.getValue());
+            p.sendMessage(colorCodes[counter] + "§6" + pair.getKey() + " §7>> §6" + pair.getValue() + " kills");
             counter ++;
             it.remove();
         }
