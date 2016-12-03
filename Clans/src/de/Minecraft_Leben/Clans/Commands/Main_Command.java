@@ -28,7 +28,7 @@ public class Main_Command implements CommandExecutor {
         Player p = (Player) sender;
 
         if(args.length == 0){
-            MainGUI maiGUI = new MainGUI(p,plugin);
+            p.sendMessage(plugin.prefix + "/Clans help | Um alle Befehle anzuzeigen");
         } else {
             if(args.length == 1){
                 //Falls Benutzer /Clans help eingibt
@@ -44,7 +44,8 @@ public class Main_Command implements CommandExecutor {
                     p.sendMessage(plugin.prefix + "4. /Clans kick <Spieler> | Wirft einen Spieler aus dem Clan");
                     p.sendMessage(plugin.prefix + "5. /Clans invite <Spieler> | Lädt einen Spieler in deinen Clan ein");
                     p.sendMessage(plugin.prefix + "6. /Clans accept | Nimmt die Einladung eines Clans an");
-                    p.sendMessage(plugin.prefix + "7. /Clans leave| verlässt deinen Clan");
+                    p.sendMessage(plugin.prefix + "7. /Clans leave | verlässt deinen Clan");
+                    p.sendMessage(plugin.prefix + "8. /Clans top | Zeigt dir die Bestenliste an");
                     p.sendMessage(plugin.prefix + "7. @<Nachricht> | schreibt eine Nachricht im Clan Chat");
                 }
                 //Falls User mit Clans.Admin rechten /reload eingibt
@@ -78,6 +79,10 @@ public class Main_Command implements CommandExecutor {
                 if(args[0].equalsIgnoreCase("money")){
                     //Wenn Spieler /Clans money eingeben
                     SubCommandClanBank subCommandClanBank = new SubCommandClanBank(p,plugin);
+                }
+                if(args[0].equalsIgnoreCase("top")){
+                    //Wenn Spieler /Clans money eingeben
+                    SubCommandTop subCommandTop = new SubCommandTop(p,plugin);
                 }
 
                 /*
