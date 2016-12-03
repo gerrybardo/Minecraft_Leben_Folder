@@ -32,7 +32,7 @@ public class PlayerChat_Prefix_ClanChat implements Listener {
 
                 String msg = e.getMessage().replace("&", "§");
                 String Clankürzel = Main.getClanKürzel(e.getPlayer()).replace("&", "§");
-                e.setFormat("§l" + Clankürzel + "§r " + msg);
+                e.setFormat("§l" + Clankürzel + "§r " + e.getPlayer().getDisplayName() + ": " + msg);
             }
         }
     }

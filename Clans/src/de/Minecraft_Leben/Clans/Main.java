@@ -4,6 +4,7 @@ import de.Minecraft_Leben.Clans.Database.CreateConnection;
 import de.Minecraft_Leben.Clans.Listener.PlayerChat_Prefix_ClanChat;
 import de.Minecraft_Leben.Clans.Listener.PlayerJoin_Database_Insert;
 import de.Minecraft_Leben.Clans.Listener.Player_Damage_In_Clan;
+import de.Minecraft_Leben.Clans.Listener.Player_Death_In_Clan;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
@@ -54,6 +55,7 @@ public class Main extends JavaPlugin {
         PlayerJoin_Database_Insert playerJoinDatabaseInsert = new PlayerJoin_Database_Insert(this);
         PlayerChat_Prefix_ClanChat playerChatPrefixClanChat = new PlayerChat_Prefix_ClanChat(this);
         Player_Damage_In_Clan player_damage_in_clan = new Player_Damage_In_Clan(this);
+        Player_Death_In_Clan player_death_in_clan = new Player_Death_In_Clan(this);
 
     }
 
