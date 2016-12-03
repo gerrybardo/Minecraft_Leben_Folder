@@ -1,0 +1,8 @@
+name: Clans
+version: 1.0
+main: de.Minecraft_Leben.Clans.Main
+Authors: gerrybardo
+depend: [Vault]
+commands:
+ Clans:
+ test:
