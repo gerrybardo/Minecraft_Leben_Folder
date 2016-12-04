@@ -4,7 +4,9 @@ import de.Minecraft_Leben.Clans.Database.CreateConnection;
 import de.Minecraft_Leben.Clans.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
+import org.bukkit.event.Event;
 import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.AsyncPlayerChatEvent;
 
@@ -30,9 +32,13 @@ public class PlayerChat_Prefix_ClanChat implements Listener {
         if(Main.isUserInDatabase(e.getPlayer())){
             if(Main.isPlayerInClan(e.getPlayer())){
 
-                String msg = e.getMessage().replace("&", "§");
+                /*
+                Essentials Chat needs to be implemented
+                 */
+
                 String Clankürzel = Main.getClanKürzel(e.getPlayer()).replace("&", "§");
-                e.setFormat("§l" + Clankürzel + "§r " + e.getPlayer().getDisplayName() + ": " + msg);
+                e.setFormat(e.getFormat().replace("{CLAN}", Clankürzel));
+
             }
         }
     }

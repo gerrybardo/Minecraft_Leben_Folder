@@ -12,6 +12,6 @@ public class SubCommandClanBank {
     private Economy econ;
     public SubCommandClanBank(Player p, Main plugin) {
         this.econ = Main.economy;
-        p.sendMessage(plugin.prefix + "ClanKasse: §6" + Main.getClanMoney(p) + "$");
+        p.sendMessage(plugin.prefix + "Clan-Kasse: §6" + Main.getClanMoney(p) + "$");
     }
 }

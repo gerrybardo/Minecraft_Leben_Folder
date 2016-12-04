@@ -46,6 +46,7 @@ public class Main_Command implements CommandExecutor {
                     p.sendMessage(plugin.prefix + "6. /Clans accept | Nimmt die Einladung eines Clans an");
                     p.sendMessage(plugin.prefix + "7. /Clans leave | verlässt deinen Clan");
                     p.sendMessage(plugin.prefix + "8. /Clans top | Zeigt dir die Bestenliste an");
+                    p.sendMessage(plugin.prefix + "9. /Clans money | Zeigt die Clan-Kasse an");
                     p.sendMessage(plugin.prefix + "7. @<Nachricht> | schreibt eine Nachricht im Clan Chat");
                 }
                 //Falls User mit Clans.Admin rechten /reload eingibt
