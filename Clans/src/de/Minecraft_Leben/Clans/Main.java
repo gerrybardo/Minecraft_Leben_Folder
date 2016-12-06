@@ -252,4 +252,23 @@ public class Main extends JavaPlugin {
             }
         }
     }
+    public static int getClanLevel(Player p){
+        if(isUserInDatabase(p) == true){
+            if(isPlayerInClan(p)){
+                try{
+                    String sql = "Select clanlvl from clan where clanid = ?";
+                    PreparedStatement preparedStatement = CreateConnection.connection.prepareStatement(sql);
+                    preparedStatement.setInt(1, getClanID(p));
+                    ResultSet set = preparedStatement.executeQuery();
+
+                    while (set.next()){
+                        return set.getInt("clanlvl");
+                    }
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return 0;
+    }
 }

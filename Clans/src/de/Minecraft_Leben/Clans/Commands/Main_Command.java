@@ -1,6 +1,7 @@
 package de.Minecraft_Leben.Clans.Commands;
 
 import de.Minecraft_Leben.Clans.Commands.subCommands.*;
+import de.Minecraft_Leben.Clans.Commands.subCommandsLevel.subCommandCurrentLevel;
 import de.Minecraft_Leben.Clans.Commands.subCommandsVault.SubCommandClanBank;
 import de.Minecraft_Leben.Clans.Database.CreateConnection;
 import de.Minecraft_Leben.Clans.GUI.MainGUI;
@@ -47,7 +48,8 @@ public class Main_Command implements CommandExecutor {
                     p.sendMessage(plugin.prefix + "7. /Clans leave | verlässt deinen Clan");
                     p.sendMessage(plugin.prefix + "8. /Clans top | Zeigt dir die Bestenliste an");
                     p.sendMessage(plugin.prefix + "9. /Clans money | Zeigt die Clan-Kasse an");
-                    p.sendMessage(plugin.prefix + "7. @<Nachricht> | schreibt eine Nachricht im Clan Chat");
+                    p.sendMessage(plugin.prefix + "10. /Clans level |Zeigt das aktuelle Clan Level");
+                    p.sendMessage(plugin.prefix + "10. @<Nachricht> | schreibt eine Nachricht im Clan Chat");
                 }
                 //Falls User mit Clans.Admin rechten /reload eingibt
                 if(args[0].equalsIgnoreCase("reload")){
@@ -61,9 +63,9 @@ public class Main_Command implements CommandExecutor {
                         p.sendMessage(plugin.keineRechte);
                     }
                 }
-                if(args[0].equalsIgnoreCase("create")){
-                    //Wenn Spieler nur /Clans Create eingibt
-                    p.sendMessage(plugin.prefix + "/Clans create <Clanname> <Clankürzel>");
+                if(args[0].equalsIgnoreCase("level")){
+                    //Wenn Spieler  /Clans level eingibt
+                    subCommandCurrentLevel subCommandCurrentLevae = new subCommandCurrentLevel(p, plugin);
                 }
                 if(args[0].equalsIgnoreCase("delete")){
                     //Wenn Spieler /Clans delete eingibt
@@ -90,9 +92,9 @@ public class Main_Command implements CommandExecutor {
                 Die Folgenden Commands sind nur dazu gedacht /Clans CommandUse auszugeben
                  */
 
-                if(args[0].equalsIgnoreCase("cc")) {
-                    //Wenn Spieler /Clans accept eingibt
-                    p.sendMessage(plugin.prefix + "/cc <Nachricht>");
+                if(args[0].equalsIgnoreCase("create")){
+                    //Wenn Spieler nur /Clans Create eingibt
+                    p.sendMessage(plugin.prefix + "/Clans create <Clanname> <Clankürzel>");
                 }
                 if(args[0].equalsIgnoreCase("promote")) {
                     //Wenn Spieler /Clans promote eingibt
