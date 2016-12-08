@@ -1,6 +1,7 @@
 package de.Minecraft_Leben.Clans.Commands;
 
 import de.Minecraft_Leben.Clans.Commands.subCommands.*;
+import de.Minecraft_Leben.Clans.Commands.subCommandsLevel.Inventory.subCommandClanInventory;
 import de.Minecraft_Leben.Clans.Commands.subCommandsLevel.subCommandCurrentInfo;
 import de.Minecraft_Leben.Clans.Commands.subCommandsLevel.subCommandLevelUpgrade;
 import de.Minecraft_Leben.Clans.Commands.subCommandsVault.SubCommandClanBank;
@@ -71,6 +72,10 @@ public class Main_Command implements CommandExecutor {
                 if(args[0].equalsIgnoreCase("info")){
                     //Wenn Spieler  /Clans level eingibt
                     subCommandCurrentInfo subCommandCurrentInfo = new subCommandCurrentInfo(p, plugin);
+                }
+                if(args[0].equalsIgnoreCase("chest")){
+                    //Wenn Spieler  /Clans level eingibt
+                    subCommandClanInventory subCommandClanInventory = new subCommandClanInventory(p, plugin);
                 }
                 if(args[0].equalsIgnoreCase("upgrade")){
                     //Wenn Spieler  /Clans level eingibt
