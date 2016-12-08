@@ -256,17 +256,34 @@ public class Main extends JavaPlugin {
         if(isUserInDatabase(p) == true){
             if(isPlayerInClan(p)){
                 try{
-                    String sql = "Select clanlvl from clan where clanid = ?";
+                    String sql = "Select levelid from clan where clanid = ?";
                     PreparedStatement preparedStatement = CreateConnection.connection.prepareStatement(sql);
                     preparedStatement.setInt(1, getClanID(p));
                     ResultSet set = preparedStatement.executeQuery();
 
                     while (set.next()){
-                        return set.getInt("clanlvl");
+                        return set.getInt("levelid");
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();
                 }
+            }
+        }
+        return 0;
+    }
+    public static double getClanKills(Player p){
+        if(isPlayerInClan(p)) {
+            try {
+                String sql = "Select kills from clan where clanid = ?";
+                PreparedStatement preparedStatement = CreateConnection.connection.prepareStatement(sql);
+                preparedStatement.setInt(1, getClanID(p));
+                ResultSet set = preparedStatement.executeQuery();
+
+                while (set.next()) {
+                    return set.getInt("kills");
+                }
+            } catch (SQLException e) {
+                e.printStackTrace();
             }
         }
         return 0;

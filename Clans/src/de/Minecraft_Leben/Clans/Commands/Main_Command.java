@@ -1,10 +1,12 @@
 package de.Minecraft_Leben.Clans.Commands;
 
 import de.Minecraft_Leben.Clans.Commands.subCommands.*;
-import de.Minecraft_Leben.Clans.Commands.subCommandsLevel.subCommandCurrentLevel;
+import de.Minecraft_Leben.Clans.Commands.subCommandsLevel.subCommandCurrentInfo;
+import de.Minecraft_Leben.Clans.Commands.subCommandsLevel.subCommandLevelUpgrade;
 import de.Minecraft_Leben.Clans.Commands.subCommandsVault.SubCommandClanBank;
+import de.Minecraft_Leben.Clans.Commands.subCommandsVault.SubCommandPay;
+import de.Minecraft_Leben.Clans.Commands.subCommandsVault.SubCommandPayOut;
 import de.Minecraft_Leben.Clans.Database.CreateConnection;
-import de.Minecraft_Leben.Clans.GUI.MainGUI;
 import de.Minecraft_Leben.Clans.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -48,7 +50,10 @@ public class Main_Command implements CommandExecutor {
                     p.sendMessage(plugin.prefix + "7. /Clans leave | verlässt deinen Clan");
                     p.sendMessage(plugin.prefix + "8. /Clans top | Zeigt dir die Bestenliste an");
                     p.sendMessage(plugin.prefix + "9. /Clans money | Zeigt die Clan-Kasse an");
-                    p.sendMessage(plugin.prefix + "10. /Clans level |Zeigt das aktuelle Clan Level");
+                    p.sendMessage(plugin.prefix + "10. /Clans info |Zeigt das aktuelle Clan Level");
+                    p.sendMessage(plugin.prefix + "11. /Clans upgrade | Erhöt das Clan-Level");
+                    p.sendMessage(plugin.prefix + "12. /Clans pay <Betrag> | Zahlt Geld in die Clan-Kasse ein");
+                    p.sendMessage(plugin.prefix + "13. /Clans payout <Betrag> | Holt Geld aus der Clan-Kasse raus");
                     p.sendMessage(plugin.prefix + "10. @<Nachricht> | schreibt eine Nachricht im Clan Chat");
                 }
                 //Falls User mit Clans.Admin rechten /reload eingibt
@@ -63,9 +68,13 @@ public class Main_Command implements CommandExecutor {
                         p.sendMessage(plugin.keineRechte);
                     }
                 }
-                if(args[0].equalsIgnoreCase("level")){
+                if(args[0].equalsIgnoreCase("info")){
                     //Wenn Spieler  /Clans level eingibt
-                    subCommandCurrentLevel subCommandCurrentLevae = new subCommandCurrentLevel(p, plugin);
+                    subCommandCurrentInfo subCommandCurrentInfo = new subCommandCurrentInfo(p, plugin);
+                }
+                if(args[0].equalsIgnoreCase("upgrade")){
+                    //Wenn Spieler  /Clans level eingibt
+                    subCommandLevelUpgrade subCommandLevelUpgrade = new subCommandLevelUpgrade(p, plugin);
                 }
                 if(args[0].equalsIgnoreCase("delete")){
                     //Wenn Spieler /Clans delete eingibt
@@ -100,6 +109,14 @@ public class Main_Command implements CommandExecutor {
                     //Wenn Spieler /Clans promote eingibt
                     p.sendMessage(plugin.prefix + "/Clans promote <Spieler>");
                 }
+                if(args[0].equalsIgnoreCase("pay")) {
+                    //Wenn Spieler /Clans promote eingibt
+                    p.sendMessage(plugin.prefix + "/Clans pay <Betrag>");
+                }
+                if(args[0].equalsIgnoreCase("payout")) {
+                    //Wenn Spieler /Clans promote eingibt
+                    p.sendMessage(plugin.prefix + "/Clans payout <Betrag>");
+                }
                 if(args[0].equalsIgnoreCase("demote")) {
                     //Wenn Spieler /Clans demote eingibt
                     p.sendMessage(plugin.prefix + "/Clans demote <Spieler>");
@@ -129,6 +146,14 @@ public class Main_Command implements CommandExecutor {
                     if(args[0].equalsIgnoreCase("invite")){
                         //Wenn Spieler /Clans kick eingibt
                         SubCommandInvite invite = new SubCommandInvite(p, args[1], plugin, sender, cmd);
+                    }
+                    if(args[0].equalsIgnoreCase("pay")){
+                        //Wenn Spieler /Clans kick eingibt
+                        SubCommandPay pay = new SubCommandPay(p, args[1], plugin);
+                    }
+                    if(args[0].equalsIgnoreCase("payout")){
+                        //Wenn Spieler /Clans kick eingibt
+                        SubCommandPayOut payOut = new SubCommandPayOut(p, args[1], plugin);
                     }
 
                      /*
