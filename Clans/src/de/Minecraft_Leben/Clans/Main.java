@@ -56,7 +56,6 @@ public class Main extends JavaPlugin {
         PlayerChat_Prefix_ClanChat playerChatPrefixClanChat = new PlayerChat_Prefix_ClanChat(this);
         Player_Damage_In_Clan player_damage_in_clan = new Player_Damage_In_Clan(this);
         Player_Death_In_Clan player_death_in_clan = new Player_Death_In_Clan(this);
-
     }
 
     private void Database() {

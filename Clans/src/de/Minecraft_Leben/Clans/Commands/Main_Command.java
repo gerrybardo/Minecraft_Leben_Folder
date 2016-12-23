@@ -1,6 +1,8 @@
 package de.Minecraft_Leben.Clans.Commands;
 
 import de.Minecraft_Leben.Clans.Commands.subCommands.*;
+import de.Minecraft_Leben.Clans.Commands.subCommandsLevel.Clan_Home.subCommandSetClanHome;
+import de.Minecraft_Leben.Clans.Commands.subCommandsLevel.Clan_Home.subCommandTeleportToClanHome;
 import de.Minecraft_Leben.Clans.Commands.subCommandsLevel.Inventory.subCommandClanInventory;
 import de.Minecraft_Leben.Clans.Commands.subCommandsLevel.subCommandCurrentInfo;
 import de.Minecraft_Leben.Clans.Commands.subCommandsLevel.subCommandLevelUpgrade;
@@ -55,7 +57,8 @@ public class Main_Command implements CommandExecutor {
                     p.sendMessage(plugin.prefix + "11. /Clans upgrade | Erhöt das Clan-Level");
                     p.sendMessage(plugin.prefix + "12. /Clans pay <Betrag> | Zahlt Geld in die Clan-Kasse ein");
                     p.sendMessage(plugin.prefix + "13. /Clans payout <Betrag> | Holt Geld aus der Clan-Kasse raus");
-                    p.sendMessage(plugin.prefix + "10. @<Nachricht> | schreibt eine Nachricht im Clan Chat");
+                    p.sendMessage(plugin.prefix + "14. /Clans chest | öffnet die Clan-Chest");
+                    p.sendMessage(plugin.prefix + "15. @<Nachricht> | schreibt eine Nachricht im Clan Chat");
                 }
                 //Falls User mit Clans.Admin rechten /reload eingibt
                 if(args[0].equalsIgnoreCase("reload")){
@@ -72,6 +75,14 @@ public class Main_Command implements CommandExecutor {
                 if(args[0].equalsIgnoreCase("info")){
                     //Wenn Spieler  /Clans level eingibt
                     subCommandCurrentInfo subCommandCurrentInfo = new subCommandCurrentInfo(p, plugin);
+                }
+                if(args[0].equalsIgnoreCase("sethome")){
+                    //Wenn Spieler  /Clans level eingibt
+                    subCommandSetClanHome subCommandSetClanHome = new subCommandSetClanHome(p, plugin);
+                }
+                if(args[0].equalsIgnoreCase("home")){
+                    //Wenn Spieler  /Clans level eingibt
+                    subCommandTeleportToClanHome subCommandTeleportToClanHome = new subCommandTeleportToClanHome(p, plugin);
                 }
                 if(args[0].equalsIgnoreCase("chest")){
                     //Wenn Spieler  /Clans level eingibt

@@ -48,7 +48,7 @@ public class subCommandClanInventory extends InventoryStringDeSerializer impleme
     private void inventoryCloseEvent(InventoryCloseEvent e){
         if(Main.isPlayerInClan(p) && e.getInventory().getName().equals("Clan-Chest")){
             safeInvToSQL(e.getInventory(), p);
-            p.sendMessage(plugin.prefix + "§aInventar erfolgreich gespeichert!");
+            p.sendMessage(plugin.prefix + "§aClan-Chest erfolgreich gespeichert!");
             InventoryCloseEvent.getHandlerList().unregister(this);
         }
     }
@@ -61,7 +61,6 @@ public class subCommandClanInventory extends InventoryStringDeSerializer impleme
 
             String inventoryString = "";
             Inventory inv = Bukkit.createInventory(null, 27, "Clan-Chest");
-
 
             while (set.next()){
                 inventoryString = set.getString("chest");
@@ -78,11 +77,9 @@ public class subCommandClanInventory extends InventoryStringDeSerializer impleme
                     return inv;
                 }
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
-
         return null;
     }
 }

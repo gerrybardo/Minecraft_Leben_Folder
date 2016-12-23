@@ -28,6 +28,13 @@ public class SubCommandDelete {
     private void deleteClan(Player p, String arg1){
         try {
 
+            //Clan Home Löschen
+
+            String deleteClanHome ="delete from clanhome where clanid =?";
+            PreparedStatement preparedStatement2 = CreateConnection.connection.prepareStatement(deleteClanHome);
+            preparedStatement2.setInt(1, Main.getClanID(p));
+            preparedStatement2.executeUpdate();
+
             //Alle benutzer die in diesem Clan waren auf den Status 0 Setzen
             String update = "update benutzer set Clanid = 0, rollenid = 0\n" +
                     "where Clanid = ?";
@@ -36,10 +43,12 @@ public class SubCommandDelete {
             preparedStatement1.executeUpdate();
 
             //Clan löschen
-            String delete ="delete from clan where Clanname =?";
-            PreparedStatement preparedStatement = CreateConnection.connection.prepareStatement(delete);
+            String deleteClan ="delete from clan where Clanname =?";
+            PreparedStatement preparedStatement = CreateConnection.connection.prepareStatement(deleteClan);
             preparedStatement.setString(1, arg1);
             preparedStatement.executeUpdate();
+
+
 
             p.sendMessage(plugin.prefix + "§aDer Clan §6" + arg1 + "§a wurde erfolgreich gelöscht");
 
