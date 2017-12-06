@@ -14,8 +14,10 @@ public class MainGUI {
     Inventory inv;
     public MainGUI(Player p, Main plugin) {
 
+
         /*
-        Vorerst auf Eis gelegt
+        Test message for Commit
          */
+
     }
 }
